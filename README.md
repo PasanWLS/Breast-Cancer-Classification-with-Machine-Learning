@@ -18,6 +18,7 @@ The dataset used for this project is a publicly available breast cancer dataset.
     and symmetry of the tumors.
 
 **3. Data Preprocessing**
+
 Before training the model, the dataset underwent several preprocessing steps:
 
    1. Data Cleaning  : Removed unnecessary columns (`Unnamed: 32` and `id`).
@@ -39,6 +40,7 @@ Before training the model, the dataset underwent several preprocessing steps:
     The model was evaluated on the test dataset, achieving an accuracy score of 0.97 (97%). This indicates that the model is highly effective in distinguishing between malignant and benign breast tumors.
 
 **5. Web Application Development**
+
 A web application was developed using Flask, a lightweight web framework for Python. The application allows users to input breast cancer features and receive a prediction on whether the tumor is likely to be malignant or benign.
 
     5.1 Application Features
@@ -50,9 +52,11 @@ A web application was developed using Flask, a lightweight web framework for Pyt
     displaying the prediction result.
 
 **6. Conclusion**
+
 This project demonstrates the application of machine learning in the medical field, specifically for the early detection of breast cancer. The Logistic Regression model, combined with a user-friendly web interface, provides a powerful tool for predicting the likelihood of breast cancer based on patient data. The high accuracy achieved by the model indicates its potential usefulness in clinical settings, although further validation with real-world data would be necessary.
 
 **7. Future Work**
+
 - Model Improvement  : Exploring more advanced models such as Support Vector Machines (SVM) or Random Forest to potentially improve accuracy.
 - Real-World Application  : Integrating the model with actual medical databases for real-time predictions.
 - Deployment  : Deploying the application on cloud platforms for broader accessibility.
