@@ -48,7 +48,7 @@ A web application was developed using Flask, a lightweight web framework for Pyt
   - Prediction Output  : Based on the input features, the model predicts whether the tumor is cancerous or not. The result is displayed on the web page.
 
     5.2 Frontend Design
-    The frontend of the application was designed using HTML and Bootstrap, providing a user-friendly interface. The application features a simple input form for entering data and a clear output message 
+  - The frontend of the application was designed using HTML and Bootstrap, providing a user-friendly interface. The application features a simple input form for entering data and a clear output message 
     displaying the prediction result.
 
 **6. Conclusion**
