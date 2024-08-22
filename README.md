@@ -1,9 +1,11 @@
 Breast Cancer Classification with Machine Learning
 
 **1. Introduction**
+
 Breast cancer is one of the most common types of cancer among women globally. Early detection and accurate diagnosis are crucial for effective treatment and improved survival rates. In this project, a machine learning model was developed to classify breast cancer as either malignant (cancerous) or benign (non-cancerous) based on patient data. The model was implemented using Python and Flask, and a web application was created to allow users to input data and receive predictions.
 
 **2. Dataset**
+
 The dataset used for this project is a publicly available breast cancer dataset. It contains data on various features extracted from breast cancer biopsies, including measurements of cell nuclei present in the images.
 
     Dataset Details:
