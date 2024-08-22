@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Breast Cancer Detector</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body style="background: #45DFB1; color: white">
+    <div style="text-align: center" class="container my-3 mt-3">
+      <h2 class="fw-bold" style="text-align: center; color: #213A57">Breast Cancer Checker</h2>
+      <img
+        style="width: 50%; height: 250px"
+        class="text-center"
+        src="{{ url_for('static', filename='maincover.jpg') }}"
+        alt="My Image"
+      />
+      <div><br></div>
+    
+
+
+      <form action="/predict" method="POST">
+      
+        <div class="mb-3">
+          <label for="text" class="form-label" style="color: #213A57"
+            ><strong>Input Breast Cancer Features</strong></label
+          >
+          <input
+            type="text"
+            class="form-control"
+            id="number"
+            name="feature"
+            aria-describedby="emailHelp"
+          />
+        </div>
+        <button type="submit" class="btn btn-primary">Check</button>
+      </form>
+    </div>
+    <div></div>
+
+
+
+    <div style="text-align: center">
+      {% for i in message %}
+          <p>{{ i }}</p>
+  
+          {% if i == 'Not Cancerous' %}
+              <div class="d-flex justify-content-center">
+                  <div class="text-center text-bg-success card my-3 mt-3" style="width: 18rem">
+                      <img
+                          style="text-align: center; width: 48px; height: 48px"
+                          src="{{ url_for('static', filename='img2.png') }}"
+                          class="rounded mx-auto d-block"
+                          alt="..."
+                      />
+                      <div class="card-body" style="text-align: center">
+                          <h5 class="card-title fw-bold">Not Cancerous</h5>
+                          <p class="card-text">Don't worry! You don't have Breast Cancer.</p>
+                      </div>
+                  </div>
+              </div>
+          {% else %}
+              <div class="d-flex justify-content-center">
+                  <div class="text-center text-bg-danger card my-3 mt-3" style="width: 18rem">
+                      <img
+                          style="text-align: center; width: 48px; height: 48px"
+                          src="{{ url_for('static', filename='img2.png') }}"
+                          class="rounded mx-auto d-block"
+                          alt="..."
+                      />
+                      <div class="card-body">
+                          <h5 class="card-title fw-bold">Cancerous</h5>
+                          <p class="card-text">Alert! You have Breast Cancer. Please consult with a doctor.</p>
+                      </div>
+                  </div>
+              </div>
+          {% endif %}
+      {% endfor %}
+  </div>
+
+
+
+
+      <div class="container my-3 mt-3">
+
+
+
+
+
+
+
+
+        <div class="mb-3">
+          <label style="color: #0B6477" for="text" class="form-label"
+            ><strong>Features Name List :</strong> 'radius_mean', 'texture_mean', 'perimeter_mean',
+       'area_mean', 'smoothness_mean', 'compactness_mean', 'concavity_mean',
+       'concave points_mean', 'symmetry_mean', 'fractal_dimension_mean',
+       'radius_se', 'texture_se', 'perimeter_se', 'area_se', 'smoothness_se',
+       'compactness_se', 'concavity_se', 'concave points_se', 'symmetry_se',
+       'fractal_dimension_se', 'radius_worst', 'texture_worst',
+       'perimeter_worst', 'area_worst', 'smoothness_worst',
+       'compactness_worst', 'concavity_worst', 'concave points_worst',
+       'symmetry_worst', 'fractal_dimension_worst' </label>
+
+       <div class="mb-3">
+        <label style="color: #0B6477" for="text" class="form-label"
+          ><strong>Example for Features Input :</strong> 6.63966343, 1.9769275, 0.31327591, 1.90233452, 2.05786602, 0.0788037, 0.26483378, 0.86043609, 1.76809679, -0.93595811, -0.85350634,  0.92729216, 0.29254864, 0.81382428, 0.88628269, -0.49847317, -0.26285216, -0.03032279,  0.4399518 , -1.25977636, -0.5802499 , 1.96523962, 1.07854631, 1.83265153, 2.01924985, 0.22847029,  0.37042607,  0.79030033,  1.74421993, -1.00983488, -0.53947146 </label
+        >
+        
+   
+    </div>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Number of Feature</th>
+          <th scope="col">Name 0f Feature</th>
+          <th scope="col">About of Feature</th>
+          
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td>radius_mean</td>
+          <td>Mean of distances from center to points on the perimeter</td>
+        </tr>
+
+        <tr>
+          <th scope="row">2</th>
+          <td>texture_mean</td>
+          <td>Standard deviation of gray-scale values</td>
+        </tr>
+
+        <tr>
+          <th scope="row">3</th>
+          <td>perimeter_mean</td>
+          <td>Perimeter of the tumor</td>
+        </tr>
+
+
+        <tr>
+          <th scope="row">4</th>
+          <td>area_mean</td>
+          <td>Area of the tumor</td>
+        </tr>
+
+
+        <tr>
+          <th scope="row">5</th>
+          <td>smoothness_mean</td>
+          <td>Local variation in radius lengths</td>
+        </tr>
+
+        <tr>
+          <th scope="row">6</th>
+          <td>compactness_mean</td>
+          <td>Perimeter^2 / area - 1.0</td>
+        </tr>
+
+        <tr>
+          <th scope="row">7</th>
+          <td>concavity_mean</td>
+          <td>Severity of concave portions of the contour</td>
+        </tr>
+
+        <tr>
+          <th scope="row">8</th>
+          <td>concave points_mean</td>
+          <td>Number of concave portions of the contour</td>
+        </tr>
+
+        <tr>
+          <th scope="row">9</th>
+          <td>symmetry_mean</td>
+          <td>Symmetry of tumor</td>
+        </tr>
+
+        <tr>
+          <th scope="row">10</th>
+          <td>fractal_dimension_mean</td>
+          <td>"Coastline approximation" – 1</td>
+        </tr>
+
+
+
+
+
+        <tr>
+          <th scope="row">11</th>
+          <td>radius_se</td>  <td>Standard error of mean of distances from center to points on the perimeter</td>
+        </tr>
+
+        <tr>
+          <th scope="row">12</th>
+          <td>texture_se</td>  <td>Standard error of gray-scale values</td>
+        </tr>
+
+        <tr>
+          <th scope="row">13</th>
+          <td>perimeter_se</td>  <td>Standard error of perimeter</td>
+        </tr>
+
+
+        <tr>
+          <th scope="row">14</th>
+          <td>area_se</td>  <td>Standard error of area</td>
+        </tr>
+
+
+        <tr>
+          <th scope="row">15</th>
+          <td>smoothness_se </td> <td>Standard error of local variation in radius lengths</td>
+        </tr>
+
+        <tr>
+          <th scope="row">16</th>
+          <td>compactness_se</td>  <td>Standard error of perimeter^2 / area - 1.0</td>
+        </tr>
+
+        <tr>
+          <th scope="row">17</th>
+          <td>concavity_se</td>  <td>Standard error of severity of concave portions of the contour</td>
+        </tr>
+
+        <tr>
+          <th scope="row">18</th>
+          <td>concave points_se</td>  <td>Standard error for number of concave portions of the contour</td>
+        </tr>
+
+        <tr>
+          <th scope="row">19</th>
+          <td>symmetry_se</td>  <td>Standard error for symmetry of tumor</td>
+        </tr>
+
+        <tr>
+          <th scope="row">20</th>
+          <td>fractal_dimension_se </td> <td>Standard error for "coastline approximation" - 1</td>
+        </tr>
+
+
+        <tr>
+          <th scope="row">21</th>
+          <td>radius_worst</td>  <td>"Worst" or largest mean value for mean of distances from center to points on the perimeter</td>
+        </tr>
+
+        <tr>
+          <th scope="row">22</th>
+          <td>texture_worst</td>  <td>"Worst" or largest mean value for standard deviation of gray-scale values</td>
+        </tr>
+
+        <tr>
+          <th scope="row">23</th>
+          <td>perimeter_worst</td>  <td>"Worst" or largest mean value for perimeter</td>
+        </tr>
+
+
+        <tr>
+          <th scope="row">24</th>
+          <td>area_worst</td>  <td>"Worst" or largest mean value for area</td>
+        </tr>
+
+
+        <tr>
+          <th scope="row">25</th>
+          <td>smoothness_worst</td>  <td>"Worst" or largest mean value for local variation in radius lengths</td>
+        </tr>
+
+        <tr>
+          <th scope="row">26</th>
+          <td>compactness_worst</td>  <td>"Worst" or largest mean value for perimeter^2 / area - 1.0</td>
+        </tr>
+
+        <tr>
+          <th scope="row">27</th>
+          <td>concavity_worst </td> <td>"Worst" or largest mean value for severity of concave portions of the contour</td>
+        </tr>
+
+        <tr>
+          <th scope="row">28</th>
+          <td>concave points_worst</td>  <td>"Worst" or largest mean value for number of concave portions of the contour</td>
+        </tr>
+
+        <tr>
+          <th scope="row">29</th>
+          <td>symmetry_worst</td>  <td>"Worst" or largest mean value for symmetry of tumor</td>
+        </tr>
+
+        <tr>
+          <th scope="row">30</th>
+          <td>fractal_dimension_worst </td> <td>"Worst" or largest mean value for "coastline approximation" - 1</td>
+        </tr>
+        
+      </tbody>
+    </table>
+    
+
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.7/dist/umd/popper.min.js"
+      integrity="sha384-zYPOMqeu1DAVkHiLqWBUTcbYfZ8osu1Nd6Z89ify25QV9guujx43ITvfi12/QExE"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.min.js"
+      integrity="sha384-Y4oOpwW3duJdCWv5ly8SCFYWqFDsfob/3GkgExXKV4idmbt98QcxXYs9UoXAB7BZ"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
